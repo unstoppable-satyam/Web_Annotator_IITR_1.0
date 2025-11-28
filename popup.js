@@ -37,6 +37,18 @@ const setDOMInfo = info => {
   attachEventListeners();
 };
 
+window.addEventListener('DOMContentLoaded', () => {
+  // existing code...
+  const dl = document.getElementById('download');
+  console.log('download element exists?', !!dl);
+  if (dl) {
+    console.log('backgroundImage CSS:', getComputedStyle(dl).backgroundImage);
+    // log runtime URL candidate
+    console.log('runtime url:', chrome.runtime.getURL('images/pngwing.com.png'));
+  }
+});
+
+
 const attachEventListeners = () => {
   const bts = document.getElementsByClassName('bt');
   for (let i = 0; i < bts.length; i++) {
